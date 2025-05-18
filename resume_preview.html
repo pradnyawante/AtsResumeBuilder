@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Preview</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h2>Resume Preview</h2>
+
+    <div class="resume">
+        {% include 'resume.html' %}
+    </div>
+
+    <form action="/generate_pdf" method="POST">
+        {% for key, value in data.items() %}
+        <input type="hidden" name="{{ key }}" value="{{ value }}">
+        {% endfor %}
+        <button type="submit">Save as PDF</button>
+    </form>
+</body>
+</html>
